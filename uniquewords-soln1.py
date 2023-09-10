@@ -1,17 +1,19 @@
 total_words = 0
-unique_words = {}
+#unique_words = set()
+unique_words = []
 
 f = open('article.txt', 'r')
 lines = f.readlines()
 #print(lines)
 f.close()
 
+
 def cleanword(raw_word):
   cleaned_word = ""
   for char in raw_word:
     if char.isalpha():
       cleaned_word += char.lower()
-  return cleaned_word 
+  return cleaned_word
 
 
 for line in lines:
@@ -20,18 +22,9 @@ for line in lines:
     cleaned_word = cleanword(word)
     if cleaned_word != "":
       total_words += 1
+      #unique_words.add(cleaned_word)
       if cleaned_word not in unique_words:
-        # add to the dictionay with value 1
-        unique_words[cleaned_word] = 1 
-      else:
-        # just increase its value by 1
-        unique_words[cleaned_word] += 1
+        unique_words.append(cleaned_word)
 
 print("'\n'Toplam kelime sayısı:", total_words)
 print("Benzersiz kelime sayısı:", len(unique_words))
-
-sorted_unique_words = sorted(unique_words.items(), key=lambda x:x[1], reverse=True)
-#print(sorted_unique_words)
-
-for x, y in sorted_unique_words:
-  print(x, y)
