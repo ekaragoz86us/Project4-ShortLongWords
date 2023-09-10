@@ -1,4 +1,6 @@
 # "words.txt" dosyasını okumak icin
+
+
 f= open("words.txt", "r")
 lines= f.readlines()
 #print(lines)
