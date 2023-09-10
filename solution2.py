@@ -1,12 +1,12 @@
 # "words.txt" dosyasını okumak icin acalim
-f= open("words.txt", "r")
-lines= f.readlines()
+f = open("words.txt", "r")
+lines = f.readlines()
 #print(lines)
 f.close()
 
 # Open files for short/long words
-fshort= open("short_words.txt", "w")
-fLong= open("long_words.txt", "w")
+fshort = open("short_words.txt", "w")
+fLong = open("long_words.txt", "w")
 
 total_short_words = 0
 total_long_words = 0
@@ -22,7 +22,7 @@ for word in lines:
 
 print("total_short_words=", total_short_words)
 print("total_long_words=", total_long_words)
-print("total_words_count=",(total_short_words+total_long_words))
+print("total_words_count=", (total_short_words + total_long_words))
 
 fshort.close()
 fLong.close()
